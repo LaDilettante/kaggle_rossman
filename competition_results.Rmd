@@ -1,0 +1,8 @@
+---
+title: "results"
+author: "Anh Le"
+date: "September 23, 2016"
+output: html_document
+---
+
+Median Store Month: 2850 0.25758 

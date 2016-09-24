@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "rm(list = ls())\nsource(\"_functions.R\")\nf_install_and_load(c(\"tidyverse\", \"lubridate\"))\n\n# ---- Load ----\n\ntrain <- read_csv(\"../data_raw/train.csv\", col_types = cols(StateHoliday = col_factor(levels = c(\"0\", \"a\", \"b\", \"c\"))))\nstore <- read_csv(\"../data_raw/store.csv\")\ntest <- read_csv(\"../data_raw/test.csv\", col_types = cols(StateHoliday = col_factor(levels = c(\"0\", \"a\", \"b\", \"c\"))))\n\npred <- read_csv(\"../data_raw/sample_submission.csv\")\n\n# ---- Visualize ----\n\ntable(year(train$Date))\n\ntrain %>% summarise(n_distinct(Store))\n\nyearmonth\n\ntrain <- train %>%\n  mutate(YearMonth = floor_date(Date, unit = \"month\"),\n         Month = month(Date))\n\n\nggplot(train %>% group_by(YearMonth) %>% summarise(mean = mean(Sales), median = median(Sales))) +\n  geom_line(aes(YearMonth, mean), col = \"red\") +\n  geom_line(aes(YearMonth, median), col = \"blue\") +\n  scale_x_date(labels = scales::date_format(\"%y-%m\"), breaks = scales::date_breaks(width = \"1 month\"))\n\nmean(train$Sales)\nmedian(train$Sales)\nhist(train$Sales)\n\ntrain %>% group_by(Store) %>% summarise(n = n()) %>% group_by(n) %>% summarise(n2 = n())\n\n# ---- Baseline ----\n\ntrain %>%\n  group_by(YearMonth) %>% summarise(mean = mean(Sales), median = median(Sales))\n\nd_storemonth_avg <- train %>%\n  group_by(Store, Month) %>% summarise(mean = mean(Sales), median = median(Sales))\n\nd_storeweek_avg <- train %>%\n  group_by\n\n\npred_storemonth_avg <- test %>%\n  mutate(Month = month(Date)) %>%\n  inner_join(d_storemonth_avg, by = c(\"Store\", \"Month\")) %>%\n  select(Id, Sales = median) %>%\n  write_csv(\"../prediction/avg_storemonth.csv\")\n\n\n",
+    "created" : 1474678943051.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2369470998",
+    "id" : "FF3EC869",
+    "lastKnownWriteTime" : 1474685202,
+    "last_content_update" : 1474685202287,
+    "path" : "~/projects/kaggle_rossman/R/EDA.R",
+    "project_path" : "EDA.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

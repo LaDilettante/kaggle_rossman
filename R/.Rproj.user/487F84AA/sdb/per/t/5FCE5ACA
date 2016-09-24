@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# Install and load packages\nf_install_and_load <- function(packs) {\n  new.packs <- packs[!(packs %in% installed.packages()[ ,\"Package\"])]\n  lapply(new.packs, install.packages, repos=\"http://cran.rstudio.com/\", dependencies=TRUE)\n  lapply(packs, library, character.only=TRUE)\n}\n",
+    "created" : 1474678917641.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "591071677",
+    "id" : "5FCE5ACA",
+    "lastKnownWriteTime" : 1474678941,
+    "last_content_update" : 1474678941741,
+    "path" : "~/projects/kaggle_rossman/R/functions.R",
+    "project_path" : "functions.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

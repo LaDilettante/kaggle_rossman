@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"results\"\nauthor: \"Anh Le\"\ndate: \"September 23, 2016\"\noutput: html_document\n---\n\nMedian Store Month: 2850 0.25758 ",
+    "created" : 1474684121851.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1855522844",
+    "id" : "F6804FF0",
+    "lastKnownWriteTime" : 1474684152,
+    "last_content_update" : 1474684153009,
+    "path" : "~/projects/kaggle_rossman/competition_results.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
