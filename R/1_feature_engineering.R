@@ -30,7 +30,7 @@ d_train_final <- d_train %>%
   write_rds("../data_clean/train_clean.RData")
 
 
-d_validate_final <- d_train_raw %>%
+d_validate_final <- d_train %>%
   filter(Date >= "2014-08-01" & Date <= "2014-09-30") %>%
   select(-Date) %>%
   write_rds("../data_clean/validate_clean.RData")
